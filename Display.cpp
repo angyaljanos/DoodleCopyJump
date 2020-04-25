@@ -28,13 +28,18 @@ void Display::setup(const int w,const int h) {
     }
     TTF_Init();
     this->font = TTF_OpenFont("assets/MotionPicture",30);
-    if(renderer == NULL){
+    if(font == NULL){
         SDL_Log("Nem hozhato letre a Betutipus");
         exit(3);
     }
+    if(IMG_Init(IMG_INIT_JPG |IMG_INIT_PNG) == 0)
+    {
+        SDL_Log("Kepmegjelenitesi hiba");
+        exit(4);
+    }
     SDL_RenderClear(renderer);
 }
-
+//under fixing, current state is too spagetti
 void Display::drawMenu(Vector2D mousePos){
     std::string menu[] = {"Play","ScoreBoard","Quit"};
     Vector2D OFFSET(100,100),buttonProperties(160,50);
@@ -54,5 +59,9 @@ void Display::drawMenu(Vector2D mousePos){
 
 Display::~Display() {
     TTF_CloseFont(this->font);
+    SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(window);
+    IMG_Quit();
     SDL_Quit();
+
 }

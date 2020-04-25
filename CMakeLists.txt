@@ -1,9 +1,9 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.15.3)
 project(NagyHazi)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(NagyHazi main.cpp Display.h Display.cpp Vector2D.h Vector2D.cpp ScoreLine.h ScoreLine.cpp)
+add_executable(NagyHazi main.cpp Display.h Display.cpp Vector2D.h Vector2D.cpp ScoreLine.h ScoreLine.cpp Sprite.h Platform.h Enemy.h Enemy.cpp Character.cpp Character.h)
 INCLUDE(FindPkgConfig)
 
 PKG_SEARCH_MODULE(SDL2 REQUIRED sdl2)
