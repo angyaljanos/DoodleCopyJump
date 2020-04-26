@@ -11,6 +11,7 @@ class Character:public Sprite {
 private:
     bool dead = false;
     void Control(bool);
+    void Shoot();
 public:
     Character(Vector2D& pos,Vector2D& dims, const char* PATH, SDL_Renderer* renderer):Sprite(pos,dims,PATH,renderer){
         dead = false;
