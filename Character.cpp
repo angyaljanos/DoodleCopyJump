@@ -4,6 +4,7 @@
 
 #include "Character.h"
 #include "Playground.h"
+#include "Display.h"
 
 void Character::Control(bool keyPressed) {
     if(keyPressed){
@@ -13,16 +14,12 @@ void Character::Control(bool keyPressed) {
             switch (ev->key.keysym.sym){
                 //Both hand Supported Control
                 case SDLK_RIGHT:
+                case SDLK_d:
                     pos.x += 3;
                     break;
                 case SDLK_LEFT:
-                    pos.x -= 3;
-                    break;
                 case SDLK_a:
                     pos.x -= 3;
-                    break;
-                case SDLK_d:
-                    pos.x += 3;
                     break;
                 case SDLK_SPACE:
                     Shoot();
@@ -31,10 +28,25 @@ void Character::Control(bool keyPressed) {
         }
     }
 }
-
+//UnReady
 void Character::Shoot(){
     if(Playground::enemy != NULL)
     {
 
     }
+}void Character::Update(Enemy* en, Display& display) {
+    if(Playground::CollisionCheck(en->pos,en->dims,this->pos,this->dims)
+        || this->pos.y > display.getScreenHeight())
+        dead = true;
+
+}
+bool Character::Alive() const {
+    return !dead;
+}
+void Character::Draw(SDL_Renderer* renderer) const {
+
+    SDL_Rect rect = {.x = (int)pos.x, .y = (int)pos.y,
+                     .w = (int)dims.x,.h = (int)dims.y};
+    SDL_RenderCopy(renderer,texture,NULL,&rect);
+
 }

@@ -26,7 +26,8 @@ struct Sprite{
 
     virtual void Update();
     virtual void Draw(SDL_Renderer* renderer) const;
-    ~Sprite(){
+
+    virtual ~Sprite(){
         SDL_DestroyTexture(texture);
     }
 };

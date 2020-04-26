@@ -3,7 +3,7 @@ project(NagyHazi)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(NagyHazi main.cpp Display.h Display.cpp Vector2D.h Vector2D.cpp ScoreLine.h ScoreLine.cpp Sprite.h Platform.h Enemy.h Enemy.cpp Character.cpp Character.h Playground.cpp Playground.h)
+add_executable(NagyHazi main.cpp Display.h Display.cpp Vector2D.h Vector2D.cpp ScoreLine.h ScoreLine.cpp Sprite.h Platform.h Enemy.h Enemy.cpp Character.cpp Character.h Playground.cpp Playground.h Platform.cpp BluePlatform.cpp BluePlatform.h WhitePlatform.cpp WhitePlatform.h)
 INCLUDE(FindPkgConfig)
 
 PKG_SEARCH_MODULE(SDL2 REQUIRED sdl2)

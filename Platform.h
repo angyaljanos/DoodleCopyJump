@@ -4,7 +4,6 @@
 
 #ifndef NAGYHAZI_PLATFORM_H
 #define NAGYHAZI_PLATFORM_H
-#include "Vector2D.h"
 #include "SDL.h"
 #include "SDL2_gfxPrimitives.h"
 #include "SDL_image.h"
@@ -16,7 +15,7 @@ private:
     static int maxGap;
 
 public:
-    Platform(Vector2D pos,Vector2D dims, const char* PATH, SDL_Renderer* renderer):Sprite(pos,dims,PATH,renderer){
+    Platform(Vector2D pos, SDL_Renderer* renderer, const char* PATH = "assets/greenF.png",Vector2D dims = Vector2D(58,15)):Sprite(pos,dims,PATH,renderer){
 
     }
 
@@ -24,5 +23,7 @@ public:
         if(Platform::gap < Platform::maxGap)
             gap+=15;
     }
+    virtual void Draw(SDL_Renderer* renderer);
+    virtual void Update();
 };
 #endif //NAGYHAZI_PLATFORM_H

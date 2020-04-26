@@ -44,7 +44,7 @@ void Display::drawMenu(Vector2D mousePos){
     std::string menu[] = {"Play","ScoreBoard","Quit"};
     Vector2D OFFSET(100,100),buttonProperties(160,50);
     int gap = 25;
-    SDL_Rect drawingRect = {.x = 0, .y = 0,.w = this->width,.h = this->height};
+    SDL_Rect drawingRect = {.x = 0, .y = 0,.w = this->screenWidth,.h = this->screenHeight};
     SDL_Texture* texture = IMG_LoadTexture(this->renderer,"assets/bg.png");
     SDL_RenderCopy(this->renderer,texture,NULL, NULL);
     SDL_Color color = {.r = 21, .g = 61, .b = 179, .a = 255};
@@ -55,6 +55,9 @@ void Display::drawMenu(Vector2D mousePos){
 
         //SDL_RenderCopy(this->renderer,texture,)
     }
+}
+int Display::getScreenHeight() const {
+    return screenHeight;
 }
 
 Display::~Display() {

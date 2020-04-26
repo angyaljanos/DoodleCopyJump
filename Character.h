@@ -6,6 +6,8 @@
 #define NAGYHAZI_CHARACTER_H
 
 #include "Sprite.h"
+#include "Enemy.h"
+#include "Display.h"
 
 class Character:public Sprite {
 private:
@@ -22,7 +24,8 @@ public:
         dead = false;
     }
     void Draw(SDL_Renderer*) const;
-    void Update();
+    void Update(Enemy*,Display& display);
+    bool Alive()const;
 };
 
 
