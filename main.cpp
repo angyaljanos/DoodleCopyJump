@@ -1,8 +1,12 @@
 #include <iostream>
+#include "Playground.h"
+#include "Display.h"
+#include "FileManager.h"
 
-
-
+//Az asset mappa a mérete miatt nem feltölthető de elérhető :
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    Display display();
+    FileManager fm();
+    Playground game();
     return 0;
 }
