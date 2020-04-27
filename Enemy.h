@@ -18,6 +18,9 @@ class Enemy:public Sprite{
 private:
     bool dead;
 public:
+    Enemy(){
+        dead = false;
+    }
     Enemy(Vector2D& pos,Vector2D& dims, const char* PATH, SDL_Renderer* renderer):Sprite(pos,dims,PATH,renderer){
         dead = false;
         if(texture == NULL)

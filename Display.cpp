@@ -60,6 +60,10 @@ int Display::getScreenHeight() const {
     return screenHeight;
 }
 
+int Display::getScreenWidth() const {
+    return screenWidth;
+}
+
 Display::~Display() {
     TTF_CloseFont(this->font);
     SDL_DestroyRenderer(renderer);

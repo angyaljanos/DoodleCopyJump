@@ -15,6 +15,7 @@ public:
         used = false;
     }
     void Draw(SDL_Renderer* renderer);
+    void Update(Character& c);
 };
 
 

@@ -10,6 +10,8 @@
 #include "SDL2_gfxPrimitives.h"
 #include "SDL_image.h"
 #include "SDL2/SDL_ttf.h"
+#include "Display.h"
+
 
 struct Sprite{
     Vector2D pos,dims;
@@ -24,8 +26,8 @@ struct Sprite{
         texture = IMG_LoadTexture(renderer,PATH);
     }
 
-    virtual void Update();
-    virtual void Draw(SDL_Renderer* renderer) const;
+    //virtual void Update(Display& display) = 0;
+    virtual void Draw(SDL_Renderer* renderer) const = 0;
 
     virtual ~Sprite(){
         SDL_DestroyTexture(texture);

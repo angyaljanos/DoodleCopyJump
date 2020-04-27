@@ -34,10 +34,8 @@ void Character::Shoot(){
     {
 
     }
-}void Character::Update(Enemy* en, Display& display) {
-    if(Playground::CollisionCheck(en->pos,en->dims,this->pos,this->dims)
-        || this->pos.y > display.getScreenHeight())
-        dead = true;
+}void Character::Update(Display& display) {
+
 
 }
 bool Character::Alive() const {

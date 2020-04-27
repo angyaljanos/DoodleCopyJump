@@ -15,6 +15,9 @@ private:
     void Control(bool);
     void Shoot();
 public:
+    Character(){
+        dead = false;
+    }
     Character(Vector2D& pos,Vector2D& dims, const char* PATH, SDL_Renderer* renderer):Sprite(pos,dims,PATH,renderer){
         dead = false;
         if(texture == NULL)
@@ -24,7 +27,7 @@ public:
         dead = false;
     }
     void Draw(SDL_Renderer*) const;
-    void Update(Enemy*,Display& display);
+    void Update(Display& display);
     bool Alive()const;
 };
 

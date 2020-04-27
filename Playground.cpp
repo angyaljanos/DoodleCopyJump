@@ -16,11 +16,20 @@ bool Playground::CollisionCheck(Vector2D v1Pos,Vector2D v1Dims, Vector2D v2Pos,V
     return false;
 }
 //unready
-void Playground::initialSetup() {
+void Playground::initialSetup(Display& d) {
     for (int i = 0; i < 15; ++i) {
         int t = rand()%10;
+        Vector2D tmp = Playground::generateRandom(0,d.getScreenWidth(),i * Platform::platHeight, i * Platform::platHeight + Platform::gap);
         if(t < 8) {
+            Platform p(tmp,mainRenderer);
+
             //plats.emplace_back(Plat)
+        }
+        if(t == 8){
+
+        }
+        if(t == 9){
+
         }
     }
 }
@@ -36,14 +45,14 @@ void Playground::Draw() {
     for (iter = plats.begin();iter != plats.end();iter++) {
         (*iter)->Draw(mainRenderer);
     }
-    if(enemy != NULL)
-        enemy->Draw(mainRenderer);
+    //if(enemy != NULL)
+        //enemy->Draw(mainRenderer);
 
     doodle.Draw(mainRenderer);
 }
-void Playground::Update(){
+void Playground::Update(Character& c){
     std::list<Platform*>::iterator iter;
     for (iter = plats.begin();iter != plats.end();iter++) {
-        (*iter)->Update();
+        (*iter)->Update(c);
     }
 }

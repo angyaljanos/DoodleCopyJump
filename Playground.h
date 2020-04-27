@@ -16,16 +16,21 @@ class Playground {
 private:
     SDL_Renderer* mainRenderer;
 public:
+
+    Playground(){
+
+    }
+
     static bool CollisionCheck(Vector2D pos1, Vector2D dims1 ,Vector2D pos2, Vector2D dims2);
     static Enemy* enemy;
     std::list<Platform*> plats;
     Character doodle;
 
 
-    void initialSetup();
+    void initialSetup(Display& d);
     void Draw();
     Vector2D generateRandom(double minX, double maxX, double miny, double maxY);
-    void Update();
+    void Update(Character& c);
 };
 
 
