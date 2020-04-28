@@ -6,10 +6,10 @@
 #define NAGYHAZI_SPRITE_H
 
 #include "Vector2D.h"
-#include "SDL.h"
-#include "SDL2_gfxPrimitives.h"
-#include "SDL_image.h"
-#include "SDL2/SDL_ttf.h"
+#include "SDL_Fake.h"
+//#include "SDL2_gfxPrimitives.h"
+//#include "SDL_image.h"
+//#include "SDL2/SDL_ttf.h"
 #include "Display.h"
 
 
@@ -17,7 +17,7 @@ struct Sprite{
     Vector2D pos,dims;
     SDL_Texture* texture;
 
-    Sprite();
+    Sprite(){}
     Sprite(Vector2D pos,Vector2D dims, const char* PATH, SDL_Renderer* renderer):pos(pos),dims(dims){
         texture = IMG_LoadTexture(renderer,PATH);
     }

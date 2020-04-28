@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include "ScoreLine.hpp"
+#include "SDL_Fake.h"
 
 class FileManager {
     static std::string file;

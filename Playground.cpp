@@ -4,7 +4,7 @@
 
 #include "Playground.h"
 #include "Platform.h"
-
+#include "SDL_Fake.h"
 
 bool Playground::CollisionCheck(Vector2D v1Pos,Vector2D v1Dims, Vector2D v2Pos,Vector2D v2Dims) {
     if (v1Pos.x + v1Dims.x >= v2Pos.x &&
@@ -55,4 +55,7 @@ void Playground::Update(Character& c){
     for (iter = plats.begin();iter != plats.end();iter++) {
         (*iter)->Update(c);
     }
+}
+void Playground::Game() {
+
 }

@@ -6,7 +6,7 @@
 #define NAGYHAZI_VECTOR2D_H
 
 #include <iostream>
-
+#include "SDL_Fake.h"
 struct Vector2D{
     double x,y;
 

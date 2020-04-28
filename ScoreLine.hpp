@@ -6,6 +6,7 @@
 #define NAGYHAZI_SCORELINE_HPP
 #include <string>
 #include <iostream>
+#include "SDL_Fake.h"
 
 class ScoreLine{
     std::string name;

@@ -5,13 +5,14 @@
 #include "Character.h"
 #include "Playground.h"
 #include "Display.h"
+#include "SDL_Fake.h"
 
 void Character::Control(bool keyPressed) {
     if(keyPressed){
-        SDL_Event* ev;
-        SDL_PollEvent(ev);
-        if(ev->type == SDL_KEYDOWN){
-            switch (ev->key.keysym.sym){
+        SDL_Event ev;
+        SDL_PollEvent(&ev);
+        if(ev.type == SDL_KEYDOWN){
+            switch (ev.key.keysym.sym){
                 //Both hand Supported Control
                 case SDLK_RIGHT:
                 case SDLK_d:

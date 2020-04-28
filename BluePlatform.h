@@ -4,10 +4,10 @@
 
 #ifndef NAGYHAZI_BLUEPLATFORM_H
 #define NAGYHAZI_BLUEPLATFORM_H
-#include "SDL.h"
-#include "SDL2_gfxPrimitives.h"
-#include "SDL_image.h"
-#include "SDL2/SDL_ttf.h"
+#include "SDL_Fake.h"
+//#include "SDL2_gfxPrimitives.h"
+//#include "SDL_image.h"
+//#include "SDL2/SDL_ttf.h"
 #include "Platform.h"
 
 class BluePlatform:public Platform {

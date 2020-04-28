@@ -3,11 +3,11 @@
 //
 #include "Enemy.h"
 #include "Vector2D.h"
-#include "SDL.h"
-#include "SDL2_gfxPrimitives.h"
-#include "SDL_image.h"
-#include "SDL2/SDL_ttf.h"
-#include "Sprite.h"
+#include "SDL_Fake.h"
+//#include "SDL2_gfxPrimitives.h"
+//#include "SDL_image.h"
+//#include "SDL2/SDL_ttf.h""
+#include "SDL_Fake.h"
 
 void Enemy::getKilled(bool alive){
     this->dead = alive;

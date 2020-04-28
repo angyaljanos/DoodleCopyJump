@@ -4,12 +4,13 @@
 
 #ifndef NAGYHAZI_PLATFORM_H
 #define NAGYHAZI_PLATFORM_H
-#include "SDL.h"
-#include "SDL2_gfxPrimitives.h"
-#include "SDL_image.h"
-#include "SDL2/SDL_ttf.h"
+#include "SDL_Fake.h"
+//#include "SDL2_gfxPrimitives.h"
+//#include "SDL_image.h"
+//#include "SDL2/SDL_ttf.h"
 #include "Sprite.h"
 #include "Character.h"
+#include "SDL_Fake.h"
 class Platform:public Sprite{
 public:
     static double platHeight;

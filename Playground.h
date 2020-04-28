@@ -11,14 +11,16 @@
 #include <iostream>
 #include "Platform.h"
 #include "Character.h"
+#include "SDL_Fake.h"
 
 class Playground {
 private:
     SDL_Renderer* mainRenderer;
+    SDL_TimerID  timerId;
 public:
 
     Playground(){
-
+        //timerId = SDL_AddTimer(1000/240, this->Update(), this);
     }
 
     static bool CollisionCheck(Vector2D pos1, Vector2D dims1 ,Vector2D pos2, Vector2D dims2);
@@ -31,6 +33,11 @@ public:
     void Draw();
     Vector2D generateRandom(double minX, double maxX, double miny, double maxY);
     void Update(Character& c);
+    void Game();
+
+    ~Playground(){
+        SDL_RemoveTimer(timerId);
+    }
 };
 
 

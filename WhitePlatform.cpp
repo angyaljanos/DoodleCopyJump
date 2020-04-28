@@ -4,6 +4,7 @@
 
 #include "WhitePlatform.h"
 #include "Playground.h"
+#include "SDL_Fake.h"
 void WhitePlatform::Draw(SDL_Renderer* renderer) {
     if(!used){
         SDL_Rect rect = {.x = (int)pos.x, .y = (int)pos.y,

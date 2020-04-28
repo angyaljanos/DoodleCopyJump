@@ -6,6 +6,7 @@
 #define NAGYHAZI_WHITEPLATFORM_H
 
 #include "Platform.h"
+#include "SDL_Fake.h"
 
 class WhitePlatform:public Platform {
 private:

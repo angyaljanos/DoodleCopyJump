@@ -6,18 +6,19 @@
 #include <list>
 #include "FileManager.h"
 #include "ScoreLine.hpp"
+#include "SDL_Fake.h"
 
 std::string FileManager::file = "Scores.txt";
 
 void FileManager::PrintFile(ScoreLine record) {
-    std::ofstream file;
-    file.open (FileManager::file);
-    file << record.getName() <<";"<< record.getPoint()<<"\n";
-    file.close();
+    std::ofstream File;
+    File.open (FileManager::file);
+    File << record.getName() <<";"<< record.getPoint()<<"\n";
+    File.close();
 }
 
 ScoreLine* FileManager::sort(){
-
+    return NULL;
 }
 
 ScoreLine* FileManager::readFile(){

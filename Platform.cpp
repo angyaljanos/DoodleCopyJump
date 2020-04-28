@@ -2,6 +2,7 @@
 // Created by jani on 2020. 04. 26..
 //
 #include "Platform.h"
+#include "SDL_Fake.h"
 int Platform::gap = 50;
 int Platform::maxGap = 150;
 double Platform::platHeight = 15;

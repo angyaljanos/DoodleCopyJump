@@ -2,6 +2,7 @@
 // Created by jani on 2020. 04. 24..
 //
 #include "Vector2D.h"
+#include "SDL_Fake.h"
 
 Vector2D::Vector2D(const double x, const double y) {
     this->x = x;

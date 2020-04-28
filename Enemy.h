@@ -8,10 +8,11 @@
 #include <iostream>
 #include "Vector2D.h"
 #include "Sprite.h"
-#include "SDL.h"
-#include "SDL2_gfxPrimitives.h"
-#include "SDL_image.h"
-#include "SDL2/SDL_ttf.h"
+#include "SDL_Fake.h"
+//#include "SDL2_gfxPrimitives.h"
+//#include "SDL_image.h"
+//#include "SDL2/SDL_ttf.h"
+#include "SDL_Fake.h"
 
 
 class Enemy:public Sprite{

@@ -8,6 +8,7 @@
 #include "Sprite.h"
 #include "Enemy.h"
 #include "Display.h"
+#include "SDL_Fake.h"
 
 class Character:public Sprite {
 private:
@@ -15,7 +16,7 @@ private:
     void Control(bool);
     void Shoot();
 public:
-    Character(){
+    Character():Sprite(){
         dead = false;
     }
     Character(Vector2D& pos,Vector2D& dims, const char* PATH, SDL_Renderer* renderer):Sprite(pos,dims,PATH,renderer){
