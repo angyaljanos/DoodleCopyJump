@@ -15,11 +15,17 @@ private:
     SDL_Color col;
     SDL_Rect pos;
 public:
-    MenuItem(const char* c_str="",SDL_Color color={0,0,0,0},SDL_Rect pos={0,0,0,0}): content(c_str), col(color), pos(pos){}
+    void setCol(const SDL_Color &col) {
+        this->col = col;
+    }
+
+    MenuItem(const char *c_str = "", SDL_Rect pos = {0, 0, 0, 0},
+             SDL_Color color = {.r = 255, .g = 0, .b = 0, .a = 255}) : content(c_str), col(color), pos(pos){}
     const char* getContent() const {
         return content.c_str();
     }
-    void Draw(SDL_Renderer* renderer,TTF_Font* font){
+
+    void Draw(SDL_Renderer* renderer,TTF_Font* font) const {
         SDL_Surface* surface = TTF_RenderUTF8_Blended(font, content.c_str(), col);
         double scale = (double)pos.h / (double)surface->h;
         SDL_Rect d = {.x = pos.x, .y = pos.y};
@@ -29,6 +35,10 @@ public:
 
         SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
         SDL_RenderCopy(renderer,texture,NULL,&pos);
+    }
+
+    SDL_Rect getPos() const {
+        return pos;
     }
 };
 

@@ -21,7 +21,7 @@ void Playground::initialSetup(Display& d) {
         int t = rand()%10;
         Vector2D tmp = Playground::generateRandom(0,d.getScreenWidth(),i * Platform::platHeight, i * Platform::platHeight + Platform::gap);
         if(t < 8) {
-            Platform p(tmp,mainRenderer);
+            Platform p(tmp,d.renderer);
 
             //plats.emplace_back(Plat)
         }
@@ -40,15 +40,15 @@ Vector2D Playground::generateRandom(double minX, double maxX, double minY, doubl
     return Vector2D(X,Y);
 }
 
-void Playground::Draw() {
+void Playground::Draw(Display& d) {
     std::list<Platform*>::iterator iter;
     for (iter = plats.begin();iter != plats.end();iter++) {
-        (*iter)->Draw(mainRenderer);
+        (*iter)->Draw(d.renderer);
     }
     //if(enemy != NULL)
         //enemy->Draw(mainRenderer);
 
-    doodle.Draw(mainRenderer);
+    doodle.Draw(d.renderer);
 }
 void Playground::Update(Character& c){
     std::list<Platform*>::iterator iter;

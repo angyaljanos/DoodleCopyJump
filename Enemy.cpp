@@ -2,7 +2,7 @@
 // Created by jani on 2020. 04. 25..
 //
 #include "Enemy.h"
-#include "Vector2D.h"
+
 #include "SDL_Fake.h"
 //#include "SDL2_gfxPrimitives.h"
 //#include "SDL_image.h"

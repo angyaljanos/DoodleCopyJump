@@ -15,10 +15,9 @@
 
 class Playground {
 private:
-    SDL_Renderer* mainRenderer;
     SDL_TimerID  timerId;
 public:
-
+    //SDL_Renderer* mainRenderer;
     Playground(){
         //timerId = SDL_AddTimer(1000/240, this->Update(), this);
     }
@@ -30,7 +29,7 @@ public:
 
 
     void initialSetup(Display& d);
-    void Draw();
+    void Draw(Display& d);
     Vector2D generateRandom(double minX, double maxX, double miny, double maxY);
     void Update(Character& c);
     void Game();

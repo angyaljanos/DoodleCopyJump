@@ -4,7 +4,6 @@
 
 #include "Character.h"
 #include "Playground.h"
-#include "Display.h"
 #include "SDL_Fake.h"
 
 void Character::Control(bool keyPressed) {

@@ -15,11 +15,22 @@ int main() {
     SDL_PollEvent(&event);
 
     while ( SDL_WaitEvent(&event) && event.type != SDL_QUIT) {
-        display.drawMenu(Vector2D((double)event.motion.x,(double)event.motion.y));
+        Vector2D mousePosition((double)event.motion.x,(double)event.motion.y);
+        display.drawMenu(mousePosition);
         SDL_RenderPresent(display.renderer);
+        switch(display.chooseMenu(mousePosition)){
+            case 0:
+                std::cout<<"elso"<<std::endl;
+                break;
+            case 1:
+                std::cout<<"masodik"<<std::endl;
+                break;
+            case 2:
+                std::cout<<"harmadik"<<std::endl;
+                break;
+            default:break;
+        }
 
     }
-
-
     return 0;
 }

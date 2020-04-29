@@ -10,24 +10,22 @@
 //#include "SDL_ttf.h"
 #include "Vector2D.h"
 #include "SDL_Fake.h"
+#include "MenuItem.hpp"
+#include <vector>
 
 class Display{
 private:
     int screenWidth,screenHeight;
     SDL_Window* window;
-
     TTF_Font* font;
-
-
+    std::vector<MenuItem*> items;
     Display& operator=(const Display&){ return *this;}
     Display(const Display& d){}
     void drawBG();
 public:
     SDL_Renderer* renderer;
-    Display(const int w = 360,const int h = 570): screenWidth(w), screenHeight(h){
-        setup( w, h);
-    }
 
+    Display(const int w = 360,const int h = 570,const std::vector<std::string>& subtitle = {"Let's Play","Scoreboard","Quit"});
 
     void setup(const int w,const int h);
 
@@ -38,6 +36,8 @@ public:
     int getScreenHeight() const;
 
     int getScreenWidth() const;
+
+    int chooseMenu(Vector2D MousePosition);
 
     ~Display();
 };
