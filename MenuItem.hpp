@@ -8,6 +8,7 @@
 #include <string>
 #include <SDL2/SDL.h>
 #include <SDL_ttf.h>
+#include "memtrace.h"
 
 class MenuItem {
 private:
@@ -32,9 +33,11 @@ public:
         d.w = (int)(scale * (double)surface->w);
         d.h = (int)(scale * (double)surface->h);
         d.y += (int)(((double)pos.h - scale*(double)surface->h)/2.0);
-
+        SDL_RenderDrawRect(renderer,&d);
         SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
         SDL_RenderCopy(renderer,texture,NULL,&pos);
+        SDL_FreeSurface(surface);
+        SDL_DestroyTexture(texture);
     }
 
     SDL_Rect getPos() const {

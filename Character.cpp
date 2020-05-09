@@ -5,13 +5,17 @@
 #include "Character.h"
 #include "Playground.h"
 #include "SDL_Fake.h"
+#include "Enemy.h"
 
-void Character::Control(bool keyPressed) {
-    if(keyPressed){
-        SDL_Event ev;
-        SDL_PollEvent(&ev);
-        if(ev.type == SDL_KEYDOWN){
-            switch (ev.key.keysym.sym){
+#include "memtrace.h"
+
+Vector2D charDims(58,49);
+Vector2D starter(180 - 29,450);
+double jumpLimit = -100;
+
+void Character::Control(SDL_Event& ev,Enemy* enemy) {
+        if(ev.type == SDL_KEYDOWN) {
+            switch (ev.key.keysym.sym) {
                 //Both hand Supported Control
                 case SDLK_RIGHT:
                 case SDLK_d:
@@ -22,21 +26,22 @@ void Character::Control(bool keyPressed) {
                     pos.x -= 3;
                     break;
                 case SDLK_SPACE:
-                    Shoot();
-                default:break;
+                    Shoot(enemy);
+                default:
+                    break;
             }
         }
-    }
 }
 //UnReady
-void Character::Shoot(){
-    if(Playground::enemy != NULL)
+void Character::Shoot(Enemy* enemy){
+    if(enemy != NULL)
     {
-
+        enemy = NULL;
     }
-}void Character::Update(Display& display) {
-
-
+}
+void Character::Update() {
+    pos += velocity;
+    velocity += .5;
 }
 bool Character::Alive() const {
     return !dead;
@@ -47,4 +52,17 @@ void Character::Draw(SDL_Renderer* renderer) const {
                      .w = (int)dims.x,.h = (int)dims.y};
     SDL_RenderCopy(renderer,texture,NULL,&rect);
 
+}
+void Character::Kill() {
+    dead = true;
+}
+void Character::Jump(){
+    heightmeter = 0;
+
+    velocity = -10;
+    //if(velocity > jumpLimit)
+
+}
+bool Character::fall() const {
+    return velocity > 0;
 }

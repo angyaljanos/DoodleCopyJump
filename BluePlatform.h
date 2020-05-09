@@ -9,7 +9,7 @@
 //#include "SDL_image.h"
 //#include "SDL2/SDL_ttf.h"
 #include "Platform.h"
-
+#include "memtrace.h"
 class BluePlatform:public Platform {
 private:
     static int gap;
@@ -17,11 +17,10 @@ private:
     bool goingLeft;
 
 public:
-    BluePlatform(Vector2D pos, SDL_Renderer* renderer, const char* PATH = "assets/greenF.png",Vector2D dims = Vector2D(58,15)):Platform(pos,renderer,PATH,dims){
-        if(rand()%2 == 0)
-            goingLeft = true;
-        else
-            goingLeft = false;
+    BluePlatform(Vector2D pos, SDL_Renderer* renderer, const char* PATH = "../assets/green.png",Vector2D dims = Vector2D(58,15)):Platform(pos,renderer,PATH,dims){
+        goingLeft = rand()%2==0;
+        if(texture == NULL)
+            throw std::logic_error("Üres textúra @ BluePlatform");
     }
     void Update();
 };

@@ -12,30 +12,31 @@
 #include "Platform.h"
 #include "Character.h"
 #include "SDL_Fake.h"
+#include "memtrace.h"
 
 class Playground {
 private:
-    SDL_TimerID  timerId;
+
 public:
-    //SDL_Renderer* mainRenderer;
-    Playground(){
-        //timerId = SDL_AddTimer(1000/240, this->Update(), this);
-    }
+    Playground(Display& display);
 
     static bool CollisionCheck(Vector2D pos1, Vector2D dims1 ,Vector2D pos2, Vector2D dims2);
-    static Enemy* enemy;
+    Enemy* enemy;
     std::list<Platform*> plats;
     Character doodle;
 
 
-    void initialSetup(Display& d);
+    void initialSetup(Display& display);
     void Draw(Display& d);
-    Vector2D generateRandom(double minX, double maxX, double miny, double maxY);
-    void Update(Character& c);
-    void Game();
+    double generateRandom(double minX, double maxX);
+    void Update();
+    void Game(Display&);
 
     ~Playground(){
-        SDL_RemoveTimer(timerId);
+
+        for (std::list<Platform*>::iterator i = plats.begin(); i!=plats.end();++i) {
+            delete *i;
+        }
     }
 };
 

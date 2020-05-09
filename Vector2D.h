@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include "SDL_Fake.h"
+#include "memtrace.h"
 struct Vector2D{
     double x,y;
 
@@ -21,10 +22,13 @@ struct Vector2D{
     Vector2D operator+(const double);
     Vector2D operator-(const double);
 
+    ///Vector += double
+    Vector2D& operator+=(double);
+
 };
 
-///double +- Vector
+///Vector + double
 ///vertical vector komponent modification
-Vector2D operator+=(double num, const Vector2D&);
+
 
 #endif //NAGYHAZI_VECTOR2D_H

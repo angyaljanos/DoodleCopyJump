@@ -8,13 +8,15 @@
 //#include "SDL_image.h"
 //#include "SDL2/SDL_ttf.h""
 #include "SDL_Fake.h"
-
+#include "Character.h"
+#include "memtrace.h"
 void Enemy::getKilled(bool alive){
     this->dead = alive;
 }
 void Enemy::Update(double sinking){
     if(!dead){
         pos += sinking;
+
     }
 }
 void Enemy::Draw(SDL_Renderer* renderer) const {

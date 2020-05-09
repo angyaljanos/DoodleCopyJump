@@ -5,6 +5,8 @@
 #include "WhitePlatform.h"
 #include "Playground.h"
 #include "SDL_Fake.h"
+
+#include "memtrace.h"
 void WhitePlatform::Draw(SDL_Renderer* renderer) {
     if(!used){
         SDL_Rect rect = {.x = (int)pos.x, .y = (int)pos.y,
@@ -13,6 +15,5 @@ void WhitePlatform::Draw(SDL_Renderer* renderer) {
     }
 }
 void WhitePlatform::Update(Character& c){
-    if(Playground::CollisionCheck(this->pos,this->dims, c.pos,c.dims))
-        used = true;
+
 }

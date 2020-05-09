@@ -10,26 +10,23 @@
 //#include "SDL_ttf.h"
 #include "Vector2D.h"
 #include "SDL_Fake.h"
-#include "MenuItem.hpp"
 #include <vector>
-
+#include "memtrace.h"
 class Display{
 private:
     int screenWidth,screenHeight;
     SDL_Window* window;
     TTF_Font* font;
-    std::vector<MenuItem*> items;
+    SDL_Texture* background;
     Display& operator=(const Display&){ return *this;}
     Display(const Display& d){}
-    void drawBG();
+
 public:
     SDL_Renderer* renderer;
 
-    Display(const int w = 360,const int h = 570,const std::vector<std::string>& subtitle = {"Let's Play","Scoreboard","Quit"});
+    Display(const int w = 360,const int h = 570);
 
     void setup(const int w,const int h);
-
-    void drawMenu(Vector2D Mouse);
 
     void drawScoreBoard(SDL_Renderer* renderer);
 
@@ -37,7 +34,9 @@ public:
 
     int getScreenWidth() const;
 
-    int chooseMenu(Vector2D MousePosition);
+    TTF_Font *getFont() const;
+
+    void drawBG();
 
     ~Display();
 };

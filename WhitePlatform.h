@@ -7,13 +7,16 @@
 
 #include "Platform.h"
 #include "SDL_Fake.h"
+#include "memtrace.h"
 
 class WhitePlatform:public Platform {
 private:
     bool used;
 public:
-    WhitePlatform(Vector2D pos, SDL_Renderer* renderer, const char* PATH = "assets/greenF.png",Vector2D dims = Vector2D(58,15)):Platform(pos,renderer,PATH,dims){
+    WhitePlatform(Vector2D pos, SDL_Renderer* renderer, const char* PATH = "../assets/green.png",Vector2D dims = Vector2D(58,15)):Platform(pos,renderer,PATH,dims){
         used = false;
+        if(texture == NULL)
+            throw std::logic_error("Üres textúra @ WhitePlatform");
     }
     void Draw(SDL_Renderer* renderer);
     void Update(Character& c);

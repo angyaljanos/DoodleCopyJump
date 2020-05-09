@@ -11,14 +11,17 @@
 #include "Sprite.h"
 #include "Character.h"
 #include "SDL_Fake.h"
+#include "memtrace.h"
 class Platform:public Sprite{
 public:
     static double platHeight;
+    static double platWidth;
     static int gap;
     static int maxGap;
 
-    Platform(Vector2D pos, SDL_Renderer* renderer, const char* PATH = "assets/greenF.png",Vector2D dims = Vector2D(58,15)):Sprite(pos,dims,PATH,renderer){
-
+    Platform(Vector2D pos, SDL_Renderer* renderer, const char* PATH = "../assets/green.png",Vector2D dims = Vector2D(58,15)):Sprite(pos,dims,PATH,renderer){
+        if(texture == NULL)
+            throw std::logic_error("Üres textúra @ Platform");
     }
 
     static void incraseGap(){

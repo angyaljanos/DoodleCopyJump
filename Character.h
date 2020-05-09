@@ -9,27 +9,36 @@
 #include "Enemy.h"
 #include "Display.h"
 #include "SDL_Fake.h"
+#include "memtrace.h"
+
+extern Vector2D starter;
+extern Vector2D charDims;
+extern double jumpLimit;
 
 class Character:public Sprite {
 private:
-    bool dead = false;
-    void Control(bool);
-    void Shoot();
+    bool dead;
+    double velocity;
+    bool falling;
+    double heightmeter;
+
+    void Shoot(Enemy* enemy);
+
 public:
-    Character():Sprite(){
+    Character( SDL_Renderer* renderer,Vector2D& dims = charDims,Vector2D& pos = starter, const char* PATH = "../assets/doodle.png"):Sprite(pos,dims,PATH,renderer){
         dead = false;
-    }
-    Character(Vector2D& pos,Vector2D& dims, const char* PATH, SDL_Renderer* renderer):Sprite(pos,dims,PATH,renderer){
-        dead = false;
+        velocity = 10;
+        heightmeter = 0;
         if(texture == NULL)
             std::cerr<<"Failed to load texture in Character class\n";
     }
-    Character(double x, double y,double w, double h, const char* PATH, SDL_Renderer* renderer):Sprite(Vector2D(x,y),Vector2D(w,h),PATH,renderer){
-        dead = false;
-    }
+    void Control(SDL_Event& ev,Enemy* enemy);
     void Draw(SDL_Renderer*) const;
-    void Update(Display& display);
+    void Update();
     bool Alive()const;
+    void Kill();
+    void Jump();
+    bool fall() const;
 };
 
 

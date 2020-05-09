@@ -8,6 +8,7 @@
 #include <iostream>
 #include "ScoreLine.hpp"
 #include "SDL_Fake.h"
+#include "memtrace.h"
 
 class FileManager {
     static std::string file;

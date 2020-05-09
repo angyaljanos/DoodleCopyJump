@@ -12,8 +12,7 @@
 //#include "SDL2_gfxPrimitives.h"
 //#include "SDL_image.h"
 //#include "SDL2/SDL_ttf.h"
-#include "SDL_Fake.h"
-
+#include "memtrace.h"
 
 class Enemy:public Sprite{
 private:

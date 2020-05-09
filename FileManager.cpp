@@ -7,6 +7,7 @@
 #include "FileManager.h"
 #include "ScoreLine.hpp"
 #include "SDL_Fake.h"
+#include "memtrace.h"
 
 std::string FileManager::file = "Scores.txt";
 

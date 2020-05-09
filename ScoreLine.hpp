@@ -7,6 +7,7 @@
 #include <string>
 #include <iostream>
 #include "SDL_Fake.h"
+#include "memtrace.h"
 
 class ScoreLine{
     std::string name;
