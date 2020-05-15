@@ -14,6 +14,7 @@
 #include "memtrace.h"
 class Platform:public Sprite{
 public:
+    //platform properties - all of them has the same
     static double platHeight;
     static double platWidth;
     static int gap;

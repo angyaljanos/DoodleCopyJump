@@ -20,7 +20,7 @@ struct Sprite{
     Sprite(){}
     Sprite(Vector2D pos,Vector2D dims, const char* PATH, SDL_Renderer* renderer):pos(pos),dims(dims){
         texture = IMG_LoadTexture(renderer,PATH);
-        std::cout<<"Jó lessz az"<<std::endl;
+        //std::cout<<"Jó lessz az"<<std::endl;
     }
 
     Sprite(double x ,double y,double w, double h, const char* PATH, SDL_Renderer* renderer):pos(x,y),dims(w,h){

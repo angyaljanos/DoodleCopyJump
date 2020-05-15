@@ -29,7 +29,7 @@ public:
     Enemy(double x, double y,double w, double h, const char* PATH, SDL_Renderer* renderer):Sprite(Vector2D(x,y),Vector2D(w,h),PATH,renderer){
         dead = false;
     }
-    void Update(double);
+    void Update();
     void Draw(SDL_Renderer*) const;
     void getKilled(bool);
 };

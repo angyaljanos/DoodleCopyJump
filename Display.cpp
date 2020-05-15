@@ -52,7 +52,7 @@ void Display::drawBG(){
     SDL_RenderClear(renderer);
 
     if( background != NULL) {
-        SDL_RenderCopy(this->renderer, background, NULL, NULL);
+        SDL_RenderCopy(this->renderer, background, NULL, &drawingRect);
     }else std::cerr<<"Failed to load background"<<std::endl;
 }
 

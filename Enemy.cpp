@@ -13,11 +13,7 @@
 void Enemy::getKilled(bool alive){
     this->dead = alive;
 }
-void Enemy::Update(double sinking){
-    if(!dead){
-        pos += sinking;
-
-    }
+void Enemy::Update(){
 }
 void Enemy::Draw(SDL_Renderer* renderer) const {
     if(!dead){

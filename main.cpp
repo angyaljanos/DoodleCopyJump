@@ -20,13 +20,12 @@ int main() {
     try {
         Display display;
 
-        //FileManager fm;
+        FileManager fm;
         Playground game(display);
         Menu menu;
         SDL_Event event;
 
         SDL_TimerID id = SDL_AddTimer(1000/60,timer,NULL);
-
 
         while (SDL_WaitEvent(&event) && event.type != SDL_QUIT) {
             Vector2D mousePosition((double) event.motion.x, (double) event.motion.y);
@@ -41,6 +40,7 @@ int main() {
 
                 case 1:
                     std::cout << "masodik" << std::endl;
+                    fm.Draw(display);
                     break;
                 case 2:
                     SDL_RemoveTimer(id);

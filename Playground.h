@@ -28,15 +28,33 @@ public:
 
     void initialSetup(Display& display);
     void Draw(Display& d);
-    double generateRandom(double minX, double maxX);
-    void Update();
+    double random(double minX, double maxX);
+    void Update(Display& display);
     void Game(Display&);
+    void drawScore(Display&d) const;
 
-    ~Playground(){
+    inline Platform* generateNew(Vector2D,Display& p);
 
-        for (std::list<Platform*>::iterator i = plats.begin(); i!=plats.end();++i) {
-            delete *i;
-        }
+    template <class T>
+    bool deletePlats(T predicate);
+
+    ~Playground();
+};
+
+
+//Functors for deleting
+struct OutOfScreen{
+    const Display& d;
+    OutOfScreen(const Display& d):d(d){
+
+    }
+    bool operator()(Vector2D v){
+        return v.y > this->d.getScreenHeight();
+    }
+};
+struct All{
+    bool operator()(Vector2D v){
+        return true;
     }
 };
 
