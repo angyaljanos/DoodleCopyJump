@@ -12,7 +12,8 @@
 #include <SDL2_gfxPrimitives.h>
 #else
 #include <cstdlib>
-#define SDL_INIT_EVERYTHING 0
+#define SDL_INIT_EVERYTHING (0)
+#define SDL_TEXTEDITINGEVENT_TEXT_SIZE (32)
 
 typedef char SDL_Renderer;
 typedef char SDL_Texture;
@@ -43,6 +44,8 @@ typedef enum {
     SDLK_s,
     SDLK_ESCAPE,
     SDLK_SPACE,
+    SDLK_BACKSPACE,
+    SDLK_RETURN,
 } SDL_Keysym;
 
 typedef enum {
@@ -60,6 +63,8 @@ typedef enum {
     SDL_QUIT,
     SDL_MOUSEMOTION,
     SDL_LASTEVENT,
+    SDL_TEXTINPUT,
+    SDL_TEXTEDITING,
 } SDL_EventType;
 
 typedef enum {
@@ -102,6 +107,12 @@ typedef struct {
         int x;
         int y;
     } motion;
+    struct {
+        const char* text;
+    } text;
+    struct {
+        const char* text;
+    } edit;
 } SDL_Event;
 
 typedef struct {
@@ -143,6 +154,11 @@ void IMG_Quit();
 SDL_Texture* IMG_LoadTexture(SDL_Renderer*, const char*);
 void SDL_Log(const char* fmt, ...);
 int SDL_WaitEvent(SDL_Event*);
+void SDL_StartTextInput();
+void SDL_StopTextInput();
+void boxRGBA(SDL_Renderer*, int, int, int, int, int, int, int, int);
+void rectangleRGBA(SDL_Renderer*, int, int, int, int, int, int, int, int);
+void vlineRGBA(SDL_Renderer*, int, int, int, int, int, int, int);
 
 
 void FakeSDLMakeError(bool);
