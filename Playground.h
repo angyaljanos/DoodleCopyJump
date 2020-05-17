@@ -32,15 +32,27 @@ public:
 
     ///@brief A Játék kezdeti állapotát beállító függvény
     void initialSetup(Display& display);
+    /// A játék elemeinek(platformok,karakter,ellenfél..) megjelenítése
     void Draw(Display& d);
+    ///@brief Véletlenszám generátor
     double random(double minX, double maxX);
+    ///@brief A játék elemeinek frissítése
     void Update(Display& display);
+    /**A Playground vezérlő függvénye: ez felelős a többi függvény meghívásáért.
+     *
+     * @param fm -FileManager amely kezeli azt a fájlt amelybe a játékos eredméynét és elért pontszámát menteni szeretnénk
+     */
     void Game(Display&,FileManager& fm);
+    ///@brief A játékban elért pontszám megjelenítése a kijelzőn
     void drawScore(Display&d) const;
+    ///@brief A "Game Over" felirat megjelenítéséért és a játékos nevének bekééréért felelő metódus
     void gameOver(Display &d);
+    ///@brief Ha éppen nincs ellenfél a pályán akkor a függvény egy véletlenszerű szám generálásával eldönti hogy a valamely platformon lessz e
     void makeEnemy(Display& d);
+    ///@brief A "plats" lista építéért felelős függvény
     inline Platform* generateNew(Vector2D,Display& p);
 
+    ///@brief A paraméterként kapott feltétel szerint törli azokat platformokat amellyek eleget tesznek a feltételnek
     template <class T>
     bool deletePlats(T predicate);
 

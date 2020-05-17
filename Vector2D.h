@@ -8,6 +8,11 @@
 #include <iostream>
 #include "SDL_Fake.h"
 #include "memtrace.h"
+
+/**@brief A matematikában használatos két dimenziós vektorok megvalósítására elkészített osztály
+ * A program szempontjából módosítottam a rajta elvégezhető műveleteket
+ */
+
 struct Vector2D{
     double x,y;
 

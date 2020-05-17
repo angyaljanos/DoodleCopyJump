@@ -9,6 +9,7 @@
 #include "SDL_Fake.h"
 #include "memtrace.h"
 
+///@brief A FEHÉR platformok osztálya, az ős osztály objektumaival szemben ezek a platformok csak egyszer haszálhatók
 class WhitePlatform:public Platform {
 private:
     bool used;

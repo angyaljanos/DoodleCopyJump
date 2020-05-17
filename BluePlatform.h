@@ -10,7 +10,7 @@
 //#include "SDL2/SDL_ttf.h"
 #include "Platform.h"
 #include "memtrace.h"
-///@brief A platform osztály útódsoztálya, az ős osztálly objektumaival ellentétben az ehhez tartozó objektumok vízszintesen mozognak
+///@brief A KÉK platformok osztálya, az ős osztálly objektumaival ellentétben az ehhez tartozó objektumok vízszintesen mozognak
 class BluePlatform:public Platform {
 private:
     ///@brief Két platform között lévő függöleges távolság, az idő elteltével növekszik míg el nem éri a maximumát

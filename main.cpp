@@ -27,7 +27,7 @@ int main() {
         SDL_Event event;
 
         SDL_TimerID id = SDL_AddTimer(1000/60,timer,NULL);
-        ///@brief Fő esemenénykezelő ciklus
+        // Fő esemenénykezelő ciklus
         while (SDL_WaitEvent(&event) && event.type != SDL_QUIT) {
             Vector2D mousePosition((double) event.motion.x, (double) event.motion.y);
                 menu.DrawMenu(display, mousePosition,event);

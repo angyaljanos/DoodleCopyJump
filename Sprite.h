@@ -13,6 +13,7 @@
 #include "Display.h"
 #include "memtrace.h"
 
+///@brief Minden grafikával rendelkező objektum ősosztálya
 struct Sprite{
     Vector2D pos,dims;
     SDL_Texture* texture;
@@ -27,7 +28,6 @@ struct Sprite{
         texture = IMG_LoadTexture(renderer,PATH);
     }
 
-    //virtual void Update(Display& display) = 0;
     virtual void Draw(SDL_Renderer* renderer) const = 0;
 
     virtual ~Sprite(){

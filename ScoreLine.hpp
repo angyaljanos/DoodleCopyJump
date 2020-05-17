@@ -10,7 +10,9 @@
 #include "SDL_Fake.h"
 #include "memtrace.h"
 
-class ScoreLine : public std::error_code {
+
+///@brief A fájlban tárolt adatszerkezet eltárolásához készített osztály
+class ScoreLine{
     std::string name;
     size_t point;
 public:
@@ -37,6 +39,7 @@ public:
     bool operator<(const ScoreLine& other){
         return this->point < other.getScore();
     }
+    ///@brief A fájlbaírás megkönnyítésére elkészített segédfüggvény
     std::string ToString(){
         return (std::string(name + ";")+std::to_string(point));
     }
