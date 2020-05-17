@@ -2,3 +2,4 @@ Minta Péter; 2000
 Jani;190000
 Dávid;15000
 Zoli;333333Nameless;65
+Nameless;100

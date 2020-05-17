@@ -8,6 +8,8 @@
 #ifndef MEMTRACE
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
+#include <SDL2/SDL_image.h>
+#include <SDL2_gfxPrimitives.h>
 #else
 #include <cstdlib>
 #define SDL_INIT_EVERYTHING 0

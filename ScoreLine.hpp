@@ -6,6 +6,7 @@
 #define NAGYHAZI_SCORELINE_HPP
 #include <string>
 #include <iostream>
+#include <sstream>
 #include "SDL_Fake.h"
 #include "memtrace.h"
 
