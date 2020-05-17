@@ -6,8 +6,7 @@
 #define NAGYHAZI_MENUITEM_HPP
 
 #include <string>
-#include <SDL2/SDL.h>
-#include <SDL_ttf.h>
+#include "SDL_Fake.h"
 #include "memtrace.h"
 ///@brief A menü egy elemét leíró osztály deffiníciója
 class MenuItem {
