@@ -24,10 +24,6 @@ struct Sprite{
         //std::cout<<"Jó lessz az"<<std::endl;
     }
 
-    Sprite(double x ,double y,double w, double h, const char* PATH, SDL_Renderer* renderer):pos(x,y),dims(w,h){
-        texture = IMG_LoadTexture(renderer,PATH);
-    }
-
     virtual void Draw(SDL_Renderer* renderer) const = 0;
 
     virtual ~Sprite(){
