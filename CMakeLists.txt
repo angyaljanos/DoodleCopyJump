@@ -3,11 +3,11 @@ project(NagyHazi)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(NagyHazi main.cpp Display.h Display.cpp Vector2D.h Vector2D.cpp ScoreLine.hpp Sprite.h Platform.h Enemy.h Enemy.cpp Character.cpp Character.h Playground.cpp Playground.h Platform.cpp BluePlatform.cpp BluePlatform.h WhitePlatform.cpp WhitePlatform.h FileManager.cpp FileManager.h MenuItem.hpp Menu.hpp memtrace.cpp)
+add_executable(NagyHazi main.cpp Display.h Display.cpp Vector2D.h Vector2D.cpp ScoreLine.hpp Sprite.h Platform.h Enemy.h Enemy.cpp Character.cpp Character.h Playground.cpp Playground.h Platform.cpp BluePlatform.cpp BluePlatform.h WhitePlatform.cpp WhitePlatform.h FileManager.cpp FileManager.h MenuItem.hpp Menu.hpp memtrace.cpp SDL_Fake.cpp)
 INCLUDE(FindPkgConfig)
 
 #ADD_COMPILE_DEFINITIONS(CPORTA)
-#ADD_COMPILE_DEFINITIONS(MEMTRACE)
+ADD_COMPILE_DEFINITIONS(MEMTRACE)
 #ADD_DEFINITIONS("-Wall -Werror")
 
 PKG_SEARCH_MODULE(SDL2 REQUIRED sdl2)

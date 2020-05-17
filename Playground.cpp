@@ -10,6 +10,7 @@
 #include "memtrace.h"
 #include "ScoreLine.hpp"
 #include "FileManager.h"
+#include <cstring>
 
 
 
@@ -103,6 +104,8 @@ bool input_text(char *dest, size_t hossz, SDL_Rect teglalap, SDL_Color hatter, S
             case SDL_QUIT:
                 SDL_PushEvent(&event);
                 kilep = true;
+                break;
+            default:
                 break;
         }
     }

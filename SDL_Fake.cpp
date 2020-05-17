@@ -117,6 +117,12 @@ int IMG_Init(int){
     return 1;
 }
 
+void SDL_StartTextInput(){}
+void SDL_StopTextInput(){}
+void boxRGBA(SDL_Renderer*, int, int, int, int, int, int, int, int){}
+void rectangleRGBA(SDL_Renderer*, int, int, int, int, int, int, int, int){}
+void vlineRGBA(SDL_Renderer*, int, int, int, int, int, int, int){}
+
 void IMG_Quit() {}
 
 void FakeSDLMakeError(bool make) {
