@@ -8,15 +8,14 @@
 
 #include "memtrace.h"
 
-
-void WhitePlatform::Draw(SDL_Renderer* renderer) {
+void WhitePlatform::Draw(SDL_Renderer* renderer) const {
     if(!used){
         SDL_Rect rect = {.x = (int)pos.x, .y = (int)pos.y,
                 .w = (int)dims.x,.h = (int)dims.y};
         SDL_RenderCopy(renderer,texture,NULL,&rect);
     }
 }
-void WhitePlatform::Update(Character& c){
+void WhitePlatform::Update(Character& c, Display& d){
 
 }
 void WhitePlatform::setAsUsed() {
