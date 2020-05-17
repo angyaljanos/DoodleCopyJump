@@ -37,7 +37,7 @@ int main() {
                 p.Draw(d);
                 );
     } ENDM
-    
+
     return 0;
 }
 

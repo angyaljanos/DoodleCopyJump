@@ -21,7 +21,7 @@ public:
     static int gap;
     static int maxGap;
 
-    Platform(Vector2D pos, Display& display, const char* PATH = "../assets/green.png",Vector2D dims = Vector2D(58,15)):Sprite(pos,dims,PATH,display){
+    Platform(Vector2D pos, Display& display, const char* PATH = "assets/green.png",Vector2D dims = Vector2D(58,15)):Sprite(pos,dims,PATH,display){
         if(texture == NULL)
             throw std::logic_error("Üres textúra @ Platform");
     }

@@ -22,7 +22,7 @@ public:
         items.resize(subtitle.size());
         Vector2D OFFSET(20,20),buttonDimensions(160,40);
         int gap = 65;
-        for (int i = 0; i < subtitle.size(); ++i) {
+        for (size_t i = 0; i < subtitle.size(); ++i) {
             SDL_Rect destRect = {
                     .x = (int)OFFSET.x,
                     .y = (int)OFFSET.y + (int)i * gap,

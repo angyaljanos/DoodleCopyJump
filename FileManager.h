@@ -18,8 +18,8 @@ class FileManager {
     void alignTextInRect(SDL_Renderer* renderer, TTF_Font* font, std::string string, SDL_Rect* dest, SDL_Color color);
 public:
     FileManager();
-    void SaveRecord(ScoreLine record, const char* FILE = "../assets/scores.txt");
-    std::vector<ScoreLine> LoadContent(std::string FileName = "../assets/scores.txt");
+    void SaveRecord(ScoreLine record, const char* FILE = "assets/scores.txt");
+    std::vector<ScoreLine> LoadContent(std::string FileName = "assets/scores.txt");
     void listContent(Display& d);
     void Draw(Display& display);
 

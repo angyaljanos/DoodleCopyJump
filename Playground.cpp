@@ -155,11 +155,11 @@ void Playground::makeEnemy(Display& d) {
 }
 
 void Playground::initialSetup(Display& display) {
-    for (int i = 0; i * (Platform::platHeight +Platform::gap) < (int)display.getScreenHeight() + 10 ; ++i) {
+    for (size_t i = 0; i * (Platform::platHeight +Platform::gap) < (int)display.getScreenHeight() + 10 ; ++i) {
         int chance = rand() % 10;
         Platform* p;
         Vector2D tmp = Playground::random(0, display.getScreenWidth() - Platform::platWidth);
-        tmp.y = (i*Platform::platHeight) + (i-1) * Platform::gap;
+        tmp.y = (i*Platform::platHeight) + (double)(i-1) * Platform::gap;
         if(chance < 8) {
             p = new Platform(tmp, display);
 

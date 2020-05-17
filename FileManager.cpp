@@ -71,8 +71,8 @@ void FileManager::listContent(Display &d) {
     int verticalOffset = 70;
     SDL_Color color = {0,0,0,255};
     std::sort(content.begin(),content.end(),GreaterScore());
-    for (int i = 0; i < content.size() && i < 20; ++i) {
-        SDL_Rect drawingRect = {.x = 30,.y = verticalOffset + i * 20,.w = d.getScreenWidth()-60,.h = 40};
+    for (size_t i = 0; i < content.size() && i < 20; ++i) {
+        SDL_Rect drawingRect = {.x = 30,.y = verticalOffset + (int)i * 20,.w = d.getScreenWidth()-60,.h = 40};
         std::stringstream stream;
         stream << content[i].getName() << " " << std::to_string(content[i].getScore());
         alignTextInRect(d.renderer, d.getFont(), stream.str(), &drawingRect, color);
