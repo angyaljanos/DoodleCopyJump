@@ -1,3 +1,4 @@
+#ifndef MEMTRACE
 #include <iostream>
 #include "Playground.h"
 #include "Display.h"
@@ -61,3 +62,4 @@ int main() {
 
     return 0;
 }
+#endif

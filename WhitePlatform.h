@@ -18,8 +18,8 @@ public:
         if(texture == NULL)
             throw std::logic_error("Üres textúra @ WhitePlatform");
     }
-    void Draw(SDL_Renderer* renderer);
-    void Update(Character& c);
+    void Draw(SDL_Renderer* renderer) const;
+    void Update(Character& c, Display& d);
     void setAsUsed();
 };
 

@@ -3,9 +3,7 @@
 //
 #include <string>
 #include <vector>
-//#include "SDL2_gfxPrimitives.h"
-//#include "SDL_image.h"
-//#include "SDL2/SDL_ttf.h"
+#include <exception>
 #include "Display.h"
 #include "SDL_Fake.h"
 #include "MenuItem.hpp"
@@ -15,33 +13,28 @@
 ///@brief A rendereléshez szükésges SDL inicializálása
 void Display::setup(const int w,const int h) {
     if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
-        SDL_Log("Nem indithato az SDL: %s", SDL_GetError());
-        exit(1);
+        throw std::logic_error(SDL_GetError());
     }
 
     this->window = SDL_CreateWindow("DoodleCopyJump", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, w, h, 0);
     if (window == NULL) {
-        SDL_Log("Nem hozhato letre az ablak: %s", SDL_GetError());
-        exit(2);
+        throw std::logic_error(SDL_GetError());
     }
 
     this->renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_SOFTWARE);
     if (renderer == NULL) {
-        SDL_Log("Nem hozhato letre a megjelenito: %s", SDL_GetError());
-        exit(3);
+        throw std::logic_error(SDL_GetError());
     }
 
     if(TTF_Init() == 0) {
         this->font = TTF_OpenFont("../assets/MotionPicture.ttf", 150);
         if (font == NULL) {
-            SDL_Log("Nem hozhato letre betutipus");
-            exit(3);
+            throw std::logic_error(SDL_GetError());
         }
     }
     if(IMG_Init(IMG_INIT_JPG |IMG_INIT_PNG) == 0)
     {
-        SDL_Log("Kepmegjelenitesi hiba");
-        exit(4);
+        throw std::logic_error(SDL_GetError());
     }
     SDL_RenderClear(renderer);
 }

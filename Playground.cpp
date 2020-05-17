@@ -194,7 +194,7 @@ inline Platform* Playground::generateNew(Vector2D newPos,Display& display) {
         tmp = new Platform(newPos,display);
     else if(r < 9)
         tmp = new BluePlatform(newPos,display);
-    else if(r == 9)
+    else
         tmp = new WhitePlatform(newPos,display);
 
     tmp->pos.x = random(0, display.getScreenWidth() - Platform::platWidth);
@@ -299,7 +299,7 @@ void Playground::Game(Display& display,FileManager& fileManager) {
     SDL_RenderClear(display.renderer);
     SDL_Event event;
     ScoreLine score;
-    bool moving = false;
+    
     while (SDL_WaitEvent(&event) && doodle.Alive()) {
         if(event.type == SDL_KEYDOWN){
             doodle.Control(event,enemy,display);
