@@ -14,7 +14,7 @@
 #include "memtrace.h"
 
 extern double jumpLimit;
-///A Játékos által írányított karakter metódusait és adattagjait tároló osztály
+///@brief A Játékos által írányított karakter metódusait és adattagjait tároló osztály
 class Character:public Sprite {
 private:
     bool dead;
@@ -27,7 +27,7 @@ public:
         dead = false;
         velocity = 10;
         score = ScoreLine("NameLess",0);
-        ///A textúra vizsgálata
+        //A textúra vizsgálata
         if(texture == NULL)
             throw std::logic_error("Failed to load texture in Character class\n");
     }

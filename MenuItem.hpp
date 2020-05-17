@@ -23,7 +23,7 @@ public:
              SDL_Color color = {.r = 50, .g = 98, .b = 168, .a = 195}) : content(c_str), col(color), pos(pos){
 
     }
-
+    ///@brief A Menu egy elemének kirajzolása
     void Draw(SDL_Renderer* renderer,TTF_Font* font) const {
         SDL_Surface* surface = TTF_RenderUTF8_Blended(font, content.c_str(), col);
         double scale = (double)pos.h / (double)surface->h;

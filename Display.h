@@ -25,12 +25,10 @@ private:
 
 public:
     SDL_Renderer* renderer;
-
+    ///@brief paraméterként kapott egész számokat beállítja a képernyő szélességébek illetve magasságának
     Display(const int w = 360,const int h = 570);
 
     void setup(const int w,const int h);
-
-    void drawScoreBoard(SDL_Renderer* renderer);
 
     int getScreenHeight() const;
 

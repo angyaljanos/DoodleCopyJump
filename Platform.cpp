@@ -5,8 +5,8 @@
 #include "SDL_Fake.h"
 
 #include "memtrace.h"
-int Platform::gap = 50;
-int Platform::maxGap = 150;
+int Platform::gap = 30;
+int Platform::maxGap = 120;
 double Platform::platHeight = 15;
 double Platform::platWidth = 58;
 

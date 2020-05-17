@@ -11,7 +11,7 @@
 #include "SDL_Fake.h"
 #include "memtrace.h"
 
-///Az ellenfelet deffiniáló osztály
+///@briefAz ellenfelet deffiniáló osztály
 class Enemy:public Sprite{
 private:
     bool dead;

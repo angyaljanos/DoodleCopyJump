@@ -13,11 +13,11 @@
 ///@brief A platform osztály útódsoztálya, az ős osztálly objektumaival ellentétben az ehhez tartozó objektumok vízszintesen mozognak
 class BluePlatform:public Platform {
 private:
-    // Két platform között lévő függöleges távolság, az idő elteltével növekszik míg el nem éri a maximumát
+    ///@brief Két platform között lévő függöleges távolság, az idő elteltével növekszik míg el nem éri a maximumát
     static int gap;
-    //A platformok függőleges távolságának felső határa
+    ///@briefA platformok függőleges távolságának felső határa
     static int maxGap;
-    /* A platform mozgásának iránynát tároló logikai változó.
+    /**@brief A platform mozgásának iránynát tároló logikai változó.
      * Ha az értéke igaz akkor a platform balra halad, hamis esetén pedig jobbra
      */
     bool goingLeft;

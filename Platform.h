@@ -30,6 +30,7 @@ public:
         if(Platform::gap < Platform::maxGap)
             gap+=5;
     }
+    ///@brief A platformok megjelenítéséért felelős metódus
     virtual void Draw(SDL_Renderer* renderer) const;
     virtual void Update(Character& c,Display& display);
     virtual ~Platform(){}
