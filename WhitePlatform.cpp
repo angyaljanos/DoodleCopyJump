@@ -17,3 +17,6 @@ void WhitePlatform::Draw(SDL_Renderer* renderer) {
 void WhitePlatform::Update(Character& c){
 
 }
+void WhitePlatform::setAsUsed() {
+    used = true;
+}

@@ -12,6 +12,7 @@
 #include "Character.h"
 #include "SDL_Fake.h"
 #include "memtrace.h"
+///@brief A játék elindítása után a képernyőn megjelenő ZÖLD felületek(platformok) megjelenítéséért és viselkedésének leításáért felelős osztály
 class Platform:public Sprite{
 public:
     //platform properties - all of them has the same
@@ -20,16 +21,17 @@ public:
     static int gap;
     static int maxGap;
 
-    Platform(Vector2D pos, SDL_Renderer* renderer, const char* PATH = "../assets/green.png",Vector2D dims = Vector2D(58,15)):Sprite(pos,dims,PATH,renderer){
+    Platform(Vector2D pos, Display& display, const char* PATH = "../assets/green.png",Vector2D dims = Vector2D(58,15)):Sprite(pos,dims,PATH,display){
         if(texture == NULL)
             throw std::logic_error("Üres textúra @ Platform");
     }
-
+    ///@brief platformok közötti távolságot növeli a megadott maximális értékig
     static void incraseGap(){
         if(Platform::gap < Platform::maxGap)
-            gap+=15;
+            gap+=5;
     }
     virtual void Draw(SDL_Renderer* renderer) const;
-    virtual void Update(Character& c);
+    virtual void Update(Character& c,Display& display);
+    virtual ~Platform(){}
 };
 #endif //NAGYHAZI_PLATFORM_H

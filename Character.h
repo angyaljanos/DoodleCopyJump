@@ -13,35 +13,34 @@
 #include "ScoreLine.hpp"
 #include "memtrace.h"
 
-
-extern Vector2D starter;
-extern Vector2D charDims;
 extern double jumpLimit;
-
+///A Játékos által írányított karakter metódusait és adattagjait tároló osztály
 class Character:public Sprite {
 private:
     bool dead;
     double velocity;
-    bool falling;
-    ScoreLine score;
     void Shoot(Enemy* enemy);
 
 public:
-    Character( SDL_Renderer* renderer,Vector2D& dims = charDims,Vector2D& pos = starter, const char* PATH = "../assets/doodle.png"):Sprite(pos,dims,PATH,renderer){
+    ScoreLine score;
+    Character( Display& display,Vector2D dims = Vector2D(36,36),Vector2D pos = Vector2D(180 - 29,450), const char* PATH = "../assets/doodle.png"):Sprite(pos,dims,PATH,display){
         dead = false;
         velocity = 10;
+        score = ScoreLine("NameLess",0);
+        ///A textúra vizsgálata
         if(texture == NULL)
-            std::cerr<<"Failed to load texture in Character class\n";
+            throw std::logic_error("Failed to load texture in Character class\n");
     }
     void Control(SDL_Event& ev,Enemy* enemy,Display& display);
     void Draw(SDL_Renderer*) const;
-    void Update(Display& d);
+    void Update(Display& d,Enemy* enemy);
     bool Alive()const;
-    void Kill();
     void Jump();
     bool fall() const;
-    void setScore(size_t);
+    void setScore(unsigned int);
+    void setName(const char*);
     size_t getScore() const;
+    std::string getName();
 };
 
 

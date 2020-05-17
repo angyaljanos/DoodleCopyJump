@@ -15,4 +15,4 @@ void Platform::Draw(SDL_Renderer *renderer) const {
                      .w = (int)dims.x,.h = (int)dims.y};
     SDL_RenderCopy(renderer,texture,NULL,&rect);
 }
-void Platform::Update(Character& c) {}
+void Platform::Update(Character& c,Display& d) {}

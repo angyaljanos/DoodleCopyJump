@@ -13,6 +13,7 @@
 #include "Playground.h"
 
 #include "memtrace.h"
+///@brief A menüt leíró osztály deffiníció
 class Menu {
 private:
     std::vector<MenuItem*> items;
@@ -25,16 +26,22 @@ public:
             SDL_Rect destRect = {
                     .x = (int)OFFSET.x,
                     .y = (int)OFFSET.y + (int)i * gap,
-                    .w = (int)buttonDimensions.x,
+                    .w = (int)buttonDimensions.x + 50,
                     .h = (int)buttonDimensions.y
             };
             items[i] = new MenuItem(subtitle[i].c_str(), destRect);
         }
     }
+    /**@brief A Menü rajzolásáért felelős függvény
+     *
+     * @param display - A kijelző, amelyre rajzolni szeretnénk
+     * @param Mouse - Az egér helye az ablakon belül(x és y koordináták)
+     * @param ev - A felhasználó által a programban adott esemény
+     */
     void DrawMenu(Display& display, Vector2D& Mouse,SDL_Event& ev){
         display.drawBG();
-        SDL_Color hoverColor = {.r =0 ,.g = 115, .b = 8,.a = 200};
-        SDL_Color normalColor = {.r =255 ,.g = 0, .b = 0,.a = 200};
+        SDL_Color hoverColor = {.r = 168 ,.g = 153, .b = 50,.a = 200};
+        SDL_Color normalColor = {.r = 50, .g = 98, .b = 168, .a = 195};
 
             for (size_t i = 0; i < items.size(); ++i) {
                 items[i]->Draw(display.renderer, display.getFont());
@@ -47,6 +54,7 @@ public:
             }
         }
     }
+    ///@brief Menüben való választást végző függvény, ha a kattintás nem egy listaelemen történt -1 ad vissza
     int chooseMenu(Vector2D MousePosition,SDL_Event& event) {
         int choosen = -1;
 

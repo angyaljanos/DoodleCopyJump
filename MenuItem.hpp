@@ -9,7 +9,7 @@
 #include <SDL2/SDL.h>
 #include <SDL_ttf.h>
 #include "memtrace.h"
-
+///@brief A menü egy elemét leíró osztály deffiníciója
 class MenuItem {
 private:
     std::string content;
@@ -21,9 +21,8 @@ public:
     }
 
     MenuItem(const char *c_str = "", SDL_Rect pos = {0, 0, 0, 0},
-             SDL_Color color = {.r = 255, .g = 0, .b = 0, .a = 255}) : content(c_str), col(color), pos(pos){}
-    const char* getContent() const {
-        return content.c_str();
+             SDL_Color color = {.r = 50, .g = 98, .b = 168, .a = 195}) : content(c_str), col(color), pos(pos){
+
     }
 
     void Draw(SDL_Renderer* renderer,TTF_Font* font) const {
@@ -33,7 +32,7 @@ public:
         d.w = (int)(scale * (double)surface->w);
         d.h = (int)(scale * (double)surface->h);
         d.y += (int)(((double)pos.h - scale*(double)surface->h)/2.0);
-        SDL_RenderDrawRect(renderer,&d);
+        //SDL_RenderDrawRect(renderer,&d);
         SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
         SDL_RenderCopy(renderer,texture,NULL,&pos);
         SDL_FreeSurface(surface);

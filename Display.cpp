@@ -12,6 +12,7 @@
 #include "Playground.h"
 
 #include "memtrace.h"
+///@brief A rendereléshez szükésges SDL inicializálása
 void Display::setup(const int w,const int h) {
     if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
         SDL_Log("Nem indithato az SDL: %s", SDL_GetError());
@@ -45,23 +46,23 @@ void Display::setup(const int w,const int h) {
     SDL_RenderClear(renderer);
 }
 
+///@brief Háttér rajzoló függvény
 void Display::drawBG(){
-    //SDL_Delay(200);
     SDL_Rect drawingRect = {.x = 0, .y = 0,.w = screenWidth,.h = screenHeight};
 
     SDL_RenderClear(renderer);
 
     if( background != NULL) {
         SDL_RenderCopy(this->renderer, background, NULL, &drawingRect);
-    }else std::cerr<<"Failed to load background"<<std::endl;
+    }else std::logic_error("Failed to load background\n");
 }
 
 
-
+///@brief A képernyő magasságát visszaadó függvény
 int Display::getScreenHeight() const {
     return screenHeight;
 }
-
+///@brief A képernyő szélességét visszaadó függvény
 int Display::getScreenWidth() const {
     return screenWidth;
 }
@@ -74,9 +75,6 @@ Display::~Display() {
     IMG_Quit();
     SDL_Quit();
 }
-void Display::drawScoreBoard(SDL_Renderer *renderer) {
-
-}
 
 Display::Display(const int w ,const int h ):
         screenWidth(w), screenHeight(h){
@@ -84,7 +82,7 @@ Display::Display(const int w ,const int h ):
     std::string directory = "../assets/bg.png";
     background = IMG_LoadTexture(this->renderer,directory.c_str());
 }
-
+///@brief Betűkészletet visszaadó függvény
 TTF_Font *Display::getFont() const {
     return font;
 }

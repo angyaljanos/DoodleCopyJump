@@ -9,28 +9,23 @@
 #include "Vector2D.h"
 #include "Sprite.h"
 #include "SDL_Fake.h"
-//#include "SDL2_gfxPrimitives.h"
-//#include "SDL_image.h"
-//#include "SDL2/SDL_ttf.h"
 #include "memtrace.h"
 
+///Az ellenfelet deffiniáló osztály
 class Enemy:public Sprite{
 private:
     bool dead;
 public:
+    //Üres konstruktor a könnyebb pointer kezeléshez
     Enemy(){
         dead = false;
     }
-    Enemy(Vector2D& pos,Vector2D& dims, const char* PATH, SDL_Renderer* renderer):Sprite(pos,dims,PATH,renderer){
+    Enemy(Vector2D pos, Display& display,Vector2D dims = Vector2D(58,32), const char* PATH = "../assets/boss.png"):Sprite(pos,dims,PATH,display){
         dead = false;
         if(texture == NULL)
             std::cerr<<"Failed to load texture in Enemy class\n";
     }
-    Enemy(double x, double y,double w, double h, const char* PATH, SDL_Renderer* renderer):Sprite(Vector2D(x,y),Vector2D(w,h),PATH,renderer){
-        dead = false;
-    }
-    void Update();
     void Draw(SDL_Renderer*) const;
-    void getKilled(bool);
+    void setToDead();
 };
 #endif //NAGYHAZI_ENEMY_H

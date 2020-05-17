@@ -11,12 +11,13 @@
 #include <iostream>
 #include "Platform.h"
 #include "Character.h"
+#include "FileManager.h"
 #include "SDL_Fake.h"
 #include "memtrace.h"
 
 class Playground {
 private:
-
+    Vector2D last,current;
 public:
     Playground(Display& display);
 
@@ -30,9 +31,10 @@ public:
     void Draw(Display& d);
     double random(double minX, double maxX);
     void Update(Display& display);
-    void Game(Display&);
+    void Game(Display&,FileManager& fm);
     void drawScore(Display&d) const;
-
+    void gameOver(Display &d);
+    void makeEnemy(Display& d);
     inline Platform* generateNew(Vector2D,Display& p);
 
     template <class T>

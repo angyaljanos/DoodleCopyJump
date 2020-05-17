@@ -12,12 +12,14 @@
 #include "SDL_Fake.h"
 #include <vector>
 #include "memtrace.h"
+///@brief A képernyő létrehozásáért és megjelenítő osztály.
 class Display{
 private:
     int screenWidth,screenHeight;
     SDL_Window* window;
     TTF_Font* font;
     SDL_Texture* background;
+    //Assign operator and Copy Constructor are disabled
     Display& operator=(const Display&){ return *this;}
     Display(const Display& d){}
 

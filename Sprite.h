@@ -18,8 +18,8 @@ struct Sprite{
     SDL_Texture* texture;
 
     Sprite(){}
-    Sprite(Vector2D pos,Vector2D dims, const char* PATH, SDL_Renderer* renderer):pos(pos),dims(dims){
-        texture = IMG_LoadTexture(renderer,PATH);
+    Sprite(Vector2D pos,Vector2D dims, const char* PATH, Display& d):pos(pos),dims(dims){
+        texture = IMG_LoadTexture(d.renderer,PATH);
         //std::cout<<"Jó lessz az"<<std::endl;
     }
 
