@@ -4,7 +4,6 @@
 #include <iostream>
 #include <algorithm>
 #include <fstream>
-#include "SDL_ttf.h"
 #include "FileManager.h"
 #include "ScoreLine.hpp"
 #include "SDL_Fake.h"
