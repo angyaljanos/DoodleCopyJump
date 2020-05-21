@@ -3,7 +3,7 @@
 #include "SDL_Fake.h"
 #include "Display.h"
 #include "Menu.hpp"
-
+/*
 int main() {
     
     TEST(Display, Sanity) {
@@ -40,5 +40,5 @@ int main() {
 
     return 0;
 }
-
+*/
 #endif

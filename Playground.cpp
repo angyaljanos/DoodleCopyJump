@@ -262,7 +262,7 @@ void Playground::Update(Display& display){
         {
             current = (*iter)->pos;
             if(current.y < last.y)
-                doodle.setScore(int((current.y - last.y)*-1));
+                doodle.setScore(doodle.getScore() + int((current.y - last.y)*-1));
             doodle.Jump();
             if(WhitePlatform* test = dynamic_cast<WhitePlatform*>(*iter))
             {

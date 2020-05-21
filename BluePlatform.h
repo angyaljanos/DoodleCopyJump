@@ -24,7 +24,7 @@ private:
 
 public:
     //Két paraméterrel hívható konstruktor: Pozíció és Display referenciával hivatkozható
-    BluePlatform(Vector2D pos, Display& display, const char* PATH = "assets/blue.png",Vector2D dims = Vector2D(58,15)):Platform(pos,display,PATH,dims){
+    BluePlatform(Vector2D pos, Display& display, const char* PATH = "../assets/blue.png",Vector2D dims = Vector2D(58,15)):Platform(pos,display,PATH,dims){
         goingLeft = rand()%2==0;
         //Az üres textúra esetén kivétel dobás a melyett a main függvény catch ága kap el
         if(texture == NULL)

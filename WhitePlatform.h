@@ -14,7 +14,7 @@ class WhitePlatform:public Platform {
 private:
     bool used;
 public:
-    WhitePlatform(Vector2D pos, Display& d, const char* PATH = "assets/white.png",Vector2D dims = Vector2D(58,15)):Platform(pos,d,PATH,dims){
+    WhitePlatform(Vector2D pos, Display& d, const char* PATH = "../assets/white.png",Vector2D dims = Vector2D(58,15)):Platform(pos,d,PATH,dims){
         used = false;
         if(texture == NULL)
             throw std::logic_error("Üres textúra @ WhitePlatform");

@@ -23,7 +23,7 @@ private:
 
 public:
     ScoreLine score;
-    Character( Display& display,Vector2D dims = Vector2D(36,36),Vector2D pos = Vector2D(180 - 29,450), const char* PATH = "assets/doodle.png"):Sprite(pos,dims,PATH,display){
+    Character( Display& display,Vector2D dims = Vector2D(36,36),Vector2D pos = Vector2D(180 - 29,450), const char* PATH = "../assets/doodle.png"):Sprite(pos,dims,PATH,display){
         dead = false;
         velocity = 10;
         score = ScoreLine("NameLess",0);

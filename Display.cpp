@@ -27,7 +27,7 @@ void Display::setup(const int w,const int h) {
     }
 
     if(TTF_Init() == 0) {
-        this->font = TTF_OpenFont("assets/MotionPicture.ttf", 150);
+        this->font = TTF_OpenFont("../assets/MotionPicture.ttf", 150);
         if (font == NULL) {
             throw std::logic_error(SDL_GetError());
         }
@@ -72,7 +72,7 @@ Display::~Display() {
 Display::Display(const int w ,const int h ):
         screenWidth(w), screenHeight(h){
     setup( w, h);
-    std::string directory = "assets/bg.png";
+    std::string directory = "../assets/bg.png";
     background = IMG_LoadTexture(this->renderer,directory.c_str());
 }
 ///@brief Betűkészletet visszaadó függvény
